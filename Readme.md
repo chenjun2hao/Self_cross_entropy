@@ -1,7 +1,18 @@
 **问题：**用pytorch的crossentropy做损失函数的时候，迭代几步之后loss为nan的情况，
 调试了很久才发现是用attention模块的时候，mask全为0了，导致atten的值全为nan。于是自己写了一个剔除个别异常样本的cross_entropy
 
+详情请看代码，测试输出为:
+```python
+正常计算loss的输出为：
+自己写的loss： tensor(1.6094)
+官方loss： tensor(1.6094)
 
+存在个别异常样本的输出为:
+自己写的loss： tensor(7.9369, device='cuda:0', grad_fn=<MeanBackward1>)
+官方loss： tensor(nan, device='cuda:0', grad_fn=<NllLossBackward>)
+```
+
+**test data download links [state.pth](https://pan.baidu.com/s/1cvRMLEBdFR82MO38hk2a8w), password:fscg**
 
 ---
 
